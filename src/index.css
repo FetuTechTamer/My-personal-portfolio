@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #000000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400; 
+}
+span,
+.primary-color {
+  background-image: linear-gradient(to right, #FFDD8B, #F0C27B); /* Example with a darker shade */
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.bg-primary-color {
+  background-image: linear-gradient(to right, #FFDD8B, #F0C27B); /* Example with a darker shade */
+}
