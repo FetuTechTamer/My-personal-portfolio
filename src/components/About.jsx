@@ -1,25 +1,27 @@
 import React from 'react';
 
-const About = ({ aboutImg }) => {
+const About = ({ aboutImgDark, aboutImgLight, theme }) => {
+  const aboutImg = theme === 'dark' ? aboutImgDark : aboutImgLight;
+
   return (
-    <div className='py-10 text-white bg-[#0000] h-auto' id='about'>
+    <div className={`py-10 h-auto ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}`} id='about'>
       <div className="flex sm:flex-row flex-col-reverse items-center md:gap-6 gap-12 px-10 max-w-6xl mx-auto">
         
         <div className="w-full sm:w-1/2">
           <img
             src={aboutImg}
             alt="About section illustration"
-            className="object-cover rounded-xl h-[500px] "
+            className="object-cover rounded-xl h-[500px]"
           />
         </div>
   
         <div className="p-2 sm:w-1/2">
-          <div className="text-gray-300 my-3">
-            <h3 className="text-4xl font-semibold mb-5 dark:text-white">
+          <div className="my-3">
+            <h3 className={`text-4xl font-semibold mb-5 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}>
               About <span className="primary-text">Me</span>
             </h3>
-            <p className="text-justify leading-7 w-11/12 mx-auto">
-            I am Fethiya Abdurehim,a passionate Frontend Developer with over 3 years of experience in creating dynamic and responsive web applications. My expertise lies in HTML, CSS, JavaScript, and modern frameworks like React. I enjoy transforming complex design concepts into user-friendly interfaces while ensuring optimal performance. I am constantly exploring new technologies to enhance my skill set and contribute to innovative projects. Let's work together to bring your ideas to life!
+            <p className={`text-justify leading-7 w-11/12 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
+              I am Fethiya Abdurehim, a passionate Frontend Developer with over 3 years of experience in creating dynamic and responsive web applications. My expertise lies in HTML, CSS, JavaScript, and modern frameworks like React and Tailwind. I enjoy transforming complex design concepts into user-friendly interfaces while ensuring optimal performance. I am constantly exploring new technologies to enhance my skill set and contribute to innovative projects. Let's work together to bring your ideas to life!
             </p>
           </div>
 
@@ -29,8 +31,8 @@ const About = ({ aboutImg }) => {
               { number: 3, label: 'Years of Experience' },
               { number: 5, label: 'Certifications' },
             ].map((item, index) => (
-              <div key={index} className="bg-[#333333]/40 p-5 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                <h3 className="md:text-4xl text-2xl font-semibold text-white">
+              <div key={index} className={`bg-[#333333]/40 p-5 rounded-lg shadow-md transition-transform transform hover:scale-105 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className="md:text-4xl text-2xl font-semibold">
                   {item.number}<span className="primary-text">+</span>
                 </h3>
                 <p><span className="md:text-base text-xs">{item.label}</span></p>

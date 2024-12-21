@@ -4,16 +4,33 @@
 @tailwind utilities;
 
 body {
-  background-color: #000000;
   font-family: "Poppins", sans-serif;
-  font-weight: 400; 
+  transition: background-color 0.5s ease;
 }
+
+.light {
+  background-color: #ffffff;
+}
+
+.dark {
+  background-color: #121212;
+}
+
 span,
 .primary-color {
-  background-image: linear-gradient(to right, #FFDD8B, #F0C27B); /* Example with a darker shade */
+  background-image: linear-gradient(to right, #FFDD8B, #F0C27B);
   -webkit-background-clip: text;
   color: transparent;
 }
+
 .bg-primary-color {
-  background-image: linear-gradient(to right, #FFDD8B, #F0C27B); /* Example with a darker shade */
+  background-image: linear-gradient(to right, #FFDD8B, #F0C27B);
+}
+
+.flex {
+  display: flex;
+}
+
+.transition-transform {
+  transition: transform 0.5s ease-in-out;
 }
