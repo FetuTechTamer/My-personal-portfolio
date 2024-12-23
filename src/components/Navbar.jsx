@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-
-//Import mode icons image
 import darkModeIcon from '../images/darkMode.png';
-import lightModeIcon from '../images/lightMode.png'; 
+import lightModeIcon from '../images/lightMode.png';
 
 const Navbar = ({ theme, setTheme }) => {
+  const [icon, setIcon] = useState(theme === 'light' ? darkModeIcon : lightModeIcon);
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+    setIcon(theme === 'light' ? darkModeIcon : lightModeIcon); 
+  }, [theme]);
+
   const handleThemeSwitch = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
@@ -24,12 +29,12 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   return (
-    <div className={`z-10 flex justify-between items-center max-w-[1240px] mx-auto h-24 px-4 text-lg ${theme === 'dark' ? 'text-gray-300 bg-[#000000]' : 'text-gray-500 bg-white'}`}>
+    <div className={`z-10 flex justify-between items-center max-w-[1240px] mx-auto h-24 px-4 text-lg transition-colors duration-300 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>
       <button 
         onClick={handleThemeSwitch} 
         className='p-2 bg-accent text-white rounded-full w-14 h-14 flex justify-center items-center shadow-lg transition-transform transform hover:scale-105'
       >
-        <img src={theme === 'light' ? darkModeIcon : lightModeIcon} alt="Theme Icon" className="w-8 h-8 rounded-full" />
+        <img src={icon} alt="Theme Icon" className="w-8 h-8 rounded-full" />
       </button>
       <h1 className='text-3xl font-bold primary-color'>Fetu_Tech_Tamer</h1>
       <ul className='hidden md:flex space-x-5'>
