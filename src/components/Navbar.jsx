@@ -38,7 +38,7 @@ const Navbar = ({ theme, setTheme }) => {
       </button>
       <h1 className='text-3xl font-bold primary-color'>Fetu_Tech_Tamer</h1>
       <ul className='hidden md:flex space-x-5'>
-        {['Home', 'About', 'Service', 'Portfolio', 'Contact'].map((item) => (
+        {['Home', 'About', 'Skills', 'Portfolio', 'Contact'].map((item) => (
           <li 
             key={item} 
             className='relative p-5 cursor-pointer transition duration-300 transform hover:translate-y-[-2px] hover:shadow-lg border-b-2 border-transparent hover:border-red-600 hover:text-red-600' 
@@ -57,7 +57,7 @@ const Navbar = ({ theme, setTheme }) => {
       <div className={nav ? 'text-gray-300 fixed h-full left-0 top-0 w-[60%] border-r border-r-gray-900 bg-[#202121] ease-in-out duration-500' : 'fixed left-[-100%]'}>
         <h1 className='text-3xl font-bold primary-color m-4'>Fetu_Tech_Tamer</h1>
         <ul className='flex flex-col p-8 text-2xl'>
-          {['Home', 'About', 'Service', 'Portfolio', 'Contact'].map((item) => (
+          {['Home', 'About', 'Skills', 'Portfolio', 'Contact'].map((item) => (
             <li 
               key={item} 
               className='relative p-5 cursor-pointer transition duration-300 transform hover:translate-y-[-2px] hover:shadow-lg border-b-2 border-transparent hover:border-red-600 hover:text-red-600' 
