@@ -1,38 +1,62 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaCode, FaImage, FaBullhorn, FaPenNib } from 'react-icons/fa';
 
-const ExperienceCard = ({ experience, theme }) => {
+const SkillCard = ({ skill, proficiency, theme }) => {
     return (
-        <div className={`portfolio-card ${theme === 'light' ? 'bg-gray-200' : 'bg-black'} shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105`}>
-            <div className="portfolio-card-inner">
-                <div className="portfolio-card-front">
+        <div className={`skill-card ${theme === 'light' ? 'bg-gray-200' : 'bg-black'} shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 id="skills"`}>
+            <div className="skill-card-inner">
+                <div className="skill-card-front">
                     <div className="flex items-center justify-center mb-2">
-                        {experience.icon}
+                        {skill.icon}
                     </div>
                     <h3 className={`${theme === 'light' ? 'text-gray-900' : 'text-white'} text-lg text-center font-semibold`}>
-                        {experience.company}
+                        {skill.company}
                     </h3>
                     <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-400'} text-center mt-2`}>
-                        {experience.description}
+                        {skill.description}
                     </p>
                 </div>
-                <div className="portfolio-card-back">
+                <div className="skill-card-back">
                     <p className={`${theme === 'light' ? 'text-gray-900' : 'text-gray-300'} text-center`}>
-                        Skills: <span className="font-bold">{experience.tags.join(', ')}</span>
+                        Skills: <span className="font-bold">{skill.tags.join(', ')}</span>
                     </p>
+                    <div className="mt-4">
+                        <div className="text-gray-700">{skill.title}</div>
+                        <div className="w-full bg-gray-300 rounded-full h-2">
+                            <div
+                                className={`bg-green-500 h-full rounded-full`}
+                                style={{ width: `${proficiency}%` }}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
 
-const Portfolio = ({ theme }) => {
-    const experiences = [
+SkillCard.propTypes = {
+    skill: PropTypes.shape({
+        company: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+        icon: PropTypes.element.isRequired,
+        title: PropTypes.string.isRequired, // Added title for the skill
+    }).isRequired,
+    proficiency: PropTypes.number.isRequired, // Added proficiency level
+    theme: PropTypes.oneOf(['light', 'dark']).isRequired,
+};
+
+const Skills = ({ theme }) => {
+    const skills = [
         {
             company: "Web Development",
             description: "Proficient in HTML, CSS, JavaScript, and frameworks like React.",
             tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Tailwind"],
             icon: <FaCode className="text-5xl text-blue-500" />,
+            title: "Proficiency Level",
+            proficiency: 85, 
             gridSpan: 'md:col-span-1',
         },
         {
@@ -40,6 +64,8 @@ const Portfolio = ({ theme }) => {
             description: "Skilled in Adobe Creative Suite and UI/UX design tools.",
             tags: ["Photoshop", "Illustrator", "Figma"],
             icon: <FaImage className="text-5xl text-purple-500" />,
+            title: "Proficiency Level",
+            proficiency: 75, 
             gridSpan: 'md:col-span-2',
         },
         {
@@ -47,6 +73,8 @@ const Portfolio = ({ theme }) => {
             description: "Experienced in SEO and social media strategies.",
             tags: ["SEO", "Social Media", "Content Strategy"],
             icon: <FaBullhorn className="text-5xl text-green-500" />,
+            title: "Proficiency Level",
+            proficiency: 70, 
             gridSpan: 'md:col-span-2',
         },
         {
@@ -54,20 +82,22 @@ const Portfolio = ({ theme }) => {
             description: "Creating engaging content for blogs and videos.",
             tags: ["Blogging", "Video Production", "Copywriting"],
             icon: <FaPenNib className="text-5xl text-red-500" />,
+            title: "Proficiency Level",
+            proficiency: 90,
             gridSpan: 'md:col-span-1',
         },
     ];
 
     return (
-        <div className={`py-10 ${theme === 'light' ? 'bg-white' : 'bg-gray-900'} transition-colors duration-300`} id='portfolio'>
+        <div className={`py-10 ${theme === 'light' ? 'bg-white' : 'bg-gray-900'} transition-colors duration-300`} id='skills'>
             <div className="mx-auto px-4 md:px-8 max-w-[1200px]">
-                <h2 className={`mb-8 text-4xl ${theme === 'light' ? 'text-gray-900' : 'text-white'} text-center font-bold`}>
-                    My <span className="text-yellow-300">Works</span>
+                <h2 className={`mb-8 text-4xl ${theme === 'light' ? 'text-gray-800' : 'text-gray-300'} text-center font-bold`}>
+                    My <span className="primary-text">Skills</span>
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6 xl:gap-8">
-                    {experiences.map((experience, index) => (
-                        <div key={index} className={`group ${experience.gridSpan}`}>
-                            <ExperienceCard experience={experience} theme={theme} />
+                    {skills.map((skill, index) => (
+                        <div key={index} className={`group ${skill.gridSpan}`}>
+                            <SkillCard skill={skill} proficiency={skill.proficiency} theme={theme} />
                         </div>
                     ))}
                 </div>
@@ -75,7 +105,7 @@ const Portfolio = ({ theme }) => {
 
             <style>
                 {`
-                    .portfolio-card {
+                    .skill-card {
                         width: 100%; /* Full width */
                         height: 300px; /* Fixed height */
                         perspective: 1000px; /* Enable 3D perspective */
@@ -83,17 +113,17 @@ const Portfolio = ({ theme }) => {
                         border-radius: 15px; /* Rounded corners */
                         overflow: hidden; /* Hide overflow */
                     }
-                    .portfolio-card-inner {
+                    .skill-card-inner {
                         position: relative;
                         width: 100%;
                         height: 100%;
                         transform-style: preserve-3d; /* Preserve 3D */
                         transition: transform 0.3s; /* Smooth transition */
                     }
-                    .portfolio-card:hover .portfolio-card-inner {
+                    .skill-card:hover .skill-card-inner {
                         transform: rotateY(180deg); /* Flip on hover */
                     }
-                    .portfolio-card-front, .portfolio-card-back {
+                    .skill-card-front, .skill-card-back {
                         position: absolute;
                         width: 100%;
                         height: 100%;
@@ -106,7 +136,7 @@ const Portfolio = ({ theme }) => {
                         border-radius: 15px; /* Match corners */
                         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
                     }
-                    .portfolio-card-back {
+                    .skill-card-back {
                         transform: rotateY(180deg); /* Rotate back side */
                         background-color: ${theme === 'light' ? '#f9f9f9' : '#444'}; /* Back side color */
                         color: ${theme === 'light' ? '#333' : '#fff'}; /* Text color */
@@ -117,4 +147,8 @@ const Portfolio = ({ theme }) => {
     );
 };
 
-export default Portfolio;
+Skills.propTypes = {
+    theme: PropTypes.oneOf(['light', 'dark']).isRequired,
+};
+
+export default Skills;

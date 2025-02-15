@@ -6,9 +6,9 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = ({ theme }) => {
   return (
-    <div className='max-w-[1200px] h-[80vh] mx-auto flex flex-col sm:flex-row justify-center items-center' id="Home">
-      <div className='flex flex-col my-auto mx-auto sm:w-1/2'>
-        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>
+    <div className='max-w-[1200px] h-auto mx-auto flex flex-col sm:flex-row justify-center items-stretch py-5' id="Home">
+      <div className='flex flex-col mx-auto sm:w-1/2'>
+        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-4'>
           <TypeAnimation
             sequence={[
               "Frontend Dev",
@@ -23,30 +23,41 @@ const Hero = ({ theme }) => {
             repeat={Infinity}
           />
         </h1>
-        <p className={`md:text-5xl sm:text-4xl text-xl font-bold ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>with 3+ years experience</p>
+        <p className={`md:text-5xl sm:text-4xl text-xl font-bold ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>
+          with 3+ years experience
+        </p>
 
-        <div className="text-5xl flex justify-start gap-16 my-7 text-gray-600">
-          <a href="https://www.linkedin.com/in/fethiya-abdurehim-3a0248331" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:text-blue-700 hover:scale-110">
-            <AiFillLinkedin />
+        <div className="text-5xl flex justify-start gap-16 my-5">
+          <a
+            href="https://www.linkedin.com/in/fethiya-abdurehim-3a0248331"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`transition-transform duration-300 hover:${theme === 'dark' ? 'text-blue-400' : 'text-blue-700'} hover:scale-110`}
+          >
+            <AiFillLinkedin className={`text-${theme === 'dark' ? 'blue-400' : 'blue-700'}`} />
           </a>
-          <a href="https://github.com/FetuTechTamer" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:text-gray-800 hover:scale-110">
-            <AiFillGithub />
+          <a
+            href="https://github.com/FetuTechTamer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`transition-transform duration-300 hover:${theme === 'dark' ? 'text-gray-400' : 'text-gray-800'} hover:scale-110`}
+          >
+            <AiFillGithub className={`text-${theme === 'dark' ? 'gray-400' : 'gray-800'}`} />
           </a>
-          <a href="https://www.instagram.com/fethiyaabdurehim7" target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:text-pink-600 hover:scale-110">
-            <AiFillInstagram />
+          <a
+            href="https://www.instagram.com/fethiyaabdurehim7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`transition-transform duration-300 hover:${theme === 'dark' ? 'text-pink-400' : 'text-pink-600'} hover:scale-110`}
+          >
+            <AiFillInstagram className={`text-${theme === 'dark' ? 'pink-400' : 'pink-600'}`} />
           </a>
         </div>
 
-        <div className="relative inline-flex group my-3">
-          <a href="#contact" title="Let's Work Together!" role="button"
-             className="w-[300px] h-[60px] relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-primary-color rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-            Let's Work Together!
-          </a>
-        </div>
       </div>
 
-      <div className='my-auto sm:w-1/2'>
-        <img className='object-cover rounded-xl w-[300px] sm:w-[500px] mx-auto h-[485px]' src={theme === 'dark' ? HeroDark : HeroLight} alt="Hero" />
+      <div className='my-auto sm:w-1/2 flex items-center'> 
+        <img className='object-cover rounded-xl w-full sm:w-[500px] max-h-[400px] mx-auto h-auto' src={theme === 'dark' ? HeroDark : HeroLight} alt="Hero" />
       </div>
     </div>
   );

@@ -3,10 +3,17 @@ import React from 'react';
 const About = ({ aboutImgDark, aboutImgLight, theme }) => {
   const aboutImg = theme === 'dark' ? aboutImgDark : aboutImgLight;
 
+  const stats = [
+    { number: 11, label: 'Projects' },
+    { number: 3, label: 'Years of Experience' },
+    { number: 5, label: 'Certifications' },
+  ];
+
   return (
     <div className={`py-10 h-auto ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}`} id='about'>
       <div className="flex sm:flex-row flex-col-reverse items-center md:gap-6 gap-12 px-10 max-w-6xl mx-auto">
         
+        {/* Image Section */}
         <div className="w-full sm:w-1/2">
           <img
             src={aboutImg}
@@ -15,6 +22,7 @@ const About = ({ aboutImgDark, aboutImgLight, theme }) => {
           />
         </div>
   
+        {/* Text Section */}
         <div className="p-2 sm:w-1/2">
           <div className="my-3">
             <h3 className={`text-4xl font-semibold mb-5 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-800'}`}>
@@ -25,12 +33,9 @@ const About = ({ aboutImgDark, aboutImgLight, theme }) => {
             </p>
           </div>
 
+          {/* Statistics Section */}
           <div className="flex mt-10 items-center gap-7">
-            {[
-              { number: 11, label: 'Projects' },
-              { number: 3, label: 'Years of Experience' },
-              { number: 5, label: 'Certifications' },
-            ].map((item, index) => (
+            {stats.map((item, index) => (
               <div key={index} className={`bg-[#333333]/40 p-5 rounded-lg shadow-md transition-transform transform hover:scale-105 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                 <h3 className="md:text-4xl text-2xl font-semibold">
                   {item.number}<span className="primary-text">+</span>
