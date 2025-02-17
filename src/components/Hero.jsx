@@ -8,7 +8,7 @@ const Hero = ({ theme }) => {
   return (
     <div className='max-w-[1200px] h-auto mx-auto flex flex-col sm:flex-row justify-center items-stretch py-5' id="Home">
       <div className='flex flex-col mx-auto sm:w-1/2'>
-        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-4'>
+        <h1 className={`md:text-7xl sm:text-6xl text-4xl font-bold md:py-4 ${theme === 'dark' ? 'text-yellow-300' : 'text-yellow-600'}`}>
           <TypeAnimation
             sequence={[
               "Frontend Dev",
@@ -23,8 +23,8 @@ const Hero = ({ theme }) => {
             repeat={Infinity}
           />
         </h1>
-        <p className={`md:text-5xl sm:text-4xl text-xl font-bold ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}`}>
-          with 3+ years experience
+        <p className={`md:text-5xl sm:text-4xl text-xl font-bold ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+          with 2+ years experience
         </p>
 
         <div className="text-5xl flex justify-start gap-16 my-5">
@@ -53,7 +53,6 @@ const Hero = ({ theme }) => {
             <AiFillInstagram className={`text-${theme === 'dark' ? 'pink-400' : 'pink-600'}`} />
           </a>
         </div>
-
       </div>
 
       <div className='my-auto sm:w-1/2 flex items-center'> 

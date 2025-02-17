@@ -4,9 +4,9 @@ const About = ({ aboutImgDark, aboutImgLight, theme }) => {
   const aboutImg = theme === 'dark' ? aboutImgDark : aboutImgLight;
 
   const stats = [
-    { number: 11, label: 'Projects' },
-    { number: 3, label: 'Years of Experience' },
-    { number: 5, label: 'Certifications' },
+    { number: 10, label: 'Projects' },
+    { number: 2, label: 'Years of Experience' },
+    { number: 3, label: 'Certifications' },
   ];
 
   return (
@@ -29,7 +29,7 @@ const About = ({ aboutImgDark, aboutImgLight, theme }) => {
               About <span className="primary-text">Me</span>
             </h3>
             <p className={`text-justify leading-7 w-11/12 mx-auto ${theme === 'dark' ? 'text-gray-400' : 'text-gray-700'}`}>
-              I am Fethiya Abdurehim, a passionate Frontend Developer with over 3 years of experience in creating dynamic and responsive web applications. My expertise lies in HTML, CSS, JavaScript, and modern frameworks like React and Tailwind. I enjoy transforming complex design concepts into user-friendly interfaces while ensuring optimal performance. I am constantly exploring new technologies to enhance my skill set and contribute to innovative projects. Let's work together to bring your ideas to life!
+              I am Fethiya Abdurehim, a passionate Frontend Developer with over 2 years of experience in creating dynamic and responsive web applications. My expertise lies in HTML, CSS, JavaScript, and modern frameworks like React and Tailwind. I enjoy transforming complex design concepts into user-friendly interfaces while ensuring optimal performance. I am constantly exploring new technologies to enhance my skill set and contribute to innovative projects. Let's work together to bring your ideas to life!
             </p>
           </div>
 
