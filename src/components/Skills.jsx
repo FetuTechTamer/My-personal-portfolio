@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaCode, FaImage, FaBullhorn, FaPenNib } from 'react-icons/fa';
+import { FaCode, FaReact, FaMobileAlt, FaGitSquare } from 'react-icons/fa';
 
 const SkillCard = ({ skill, proficiency, theme }) => {
     return (
-        <div className={`skill-card ${theme === 'light' ? 'bg-gray-200' : 'bg-black'} shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105 id="skills"`}>
+        <div className={`skill-card ${theme === 'light' ? 'bg-gray-200' : 'bg-black'} shadow-lg cursor-pointer transform transition-transform duration-300 hover:scale-105`} id="skills">
             <div className="skill-card-inner">
                 <div className="skill-card-front">
                     <div className="flex items-center justify-center mb-2">
@@ -42,48 +42,48 @@ SkillCard.propTypes = {
         description: PropTypes.string.isRequired,
         tags: PropTypes.arrayOf(PropTypes.string).isRequired,
         icon: PropTypes.element.isRequired,
-        title: PropTypes.string.isRequired, // Added title for the skill
+        title: PropTypes.string.isRequired, 
     }).isRequired,
-    proficiency: PropTypes.number.isRequired, // Added proficiency level
+    proficiency: PropTypes.number.isRequired, 
     theme: PropTypes.oneOf(['light', 'dark']).isRequired,
 };
 
 const Skills = ({ theme }) => {
     const skills = [
         {
-            company: "Web Development",
-            description: "Proficient in HTML, CSS, JavaScript, and frameworks like React.",
-            tags: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Tailwind"],
-            icon: <FaCode className="text-5xl text-blue-500" />,
+            company: "Languages",
+            description: "Proficient in HTML, CSS, and JavaScript.",
+            tags: ["HTML", "CSS", "JavaScript", "C#", "C++", "Java"],
+            icon: <FaCode className="text-5xl text-blue-500" />,  // Code icon for languages
             title: "Proficiency Level",
-            proficiency: 85, 
+            proficiency: 90, 
             gridSpan: 'md:col-span-1',
         },
         {
-            company: "Graphic Design",
-            description: "Skilled in Adobe Creative Suite and UI/UX design tools.",
-            tags: ["Photoshop", "Illustrator", "Figma"],
-            icon: <FaImage className="text-5xl text-purple-500" />,
+            company: "Frameworks",
+            description: "Experienced with frameworks like React and Node.js.",
+            tags: ["React", "Bootstrap", "Node.js", "Tailwind CSS"],
+            icon: <FaReact className="text-5xl text-blue-500" />,  // React icon for frameworks
             title: "Proficiency Level",
-            proficiency: 75, 
+            proficiency: 85, 
             gridSpan: 'md:col-span-2',
         },
         {
-            company: "Digital Marketing",
-            description: "Experienced in SEO and social media strategies.",
-            tags: ["SEO", "Social Media", "Content Strategy"],
-            icon: <FaBullhorn className="text-5xl text-green-500" />,
+            company: "Responsive Design",
+            description: "Skilled in creating responsive layouts using CSS techniques.",
+            tags: ["Flexbox", "Grid", "Media Queries"],
+            icon: <FaMobileAlt className="text-5xl text-green-500" />,  // Mobile icon for responsive design
+            title: "Proficiency Level",
+            proficiency: 90, 
+            gridSpan: 'md:col-span-2',
+        },
+        {
+            company: "Version Control",
+            description: "Familiar with using Git for version control.",
+            tags: ["Git", "GitHub"],
+            icon: <FaGitSquare className="text-5xl text-red-500" />,  // Git icon for version control
             title: "Proficiency Level",
             proficiency: 70, 
-            gridSpan: 'md:col-span-2',
-        },
-        {
-            company: "Content Creation",
-            description: "Creating engaging content for blogs and videos.",
-            tags: ["Blogging", "Video Production", "Copywriting"],
-            icon: <FaPenNib className="text-5xl text-red-500" />,
-            title: "Proficiency Level",
-            proficiency: 90,
             gridSpan: 'md:col-span-1',
         },
     ];
